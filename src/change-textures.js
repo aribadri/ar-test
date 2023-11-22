@@ -6,6 +6,7 @@ const changeTextures = {
             const btns = document.querySelectorAll('.btns-wrapper__item');
             const mesh = model.getObject3D('mesh');
             model.addEventListener('click', () => {
+                console.log('click')
                 music.components.sound.playSound()
                 model.setAttribute('animation-mixer', {
                     'clip': 'mixamo.com',

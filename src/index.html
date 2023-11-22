@@ -43,13 +43,13 @@
       </div>
     </div>
   </div>
- 
 
-  <a-scene
-  raycaster="objects: .clickable"
+
+  <a-scene raycaster="objects: .clickable" 
+  cursor="fuse: false; rayOrigin: mouse;"
   change-textures
-   mindar-image="imageTargetSrc: targets/targets-2.mind; uiLoading:#loader; uiScanning: #target-image" color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    mindar-image="imageTargetSrc: targets/targets-2.mind; uiLoading:#loader; uiScanning: #target-image"
+    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: true">
     <a-assets>
       <img id="card"
@@ -65,13 +65,15 @@
     </a-camera>
     <a-entity id="target" mindar-image-target="targetIndex: 0">
       <!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
-      <a-gltf-model class="clickable"  id="model" rotation="90 0 0" position="0 0 0.1" scale=".5 .5 .5" src="#avatarModel">
+      <!-- <a-gltf-model class="clickable"  id="model" rotation="90 0 0" position="0 0 0.1" scale=".5 .5 .5" src="#avatarModel"> -->
+      <a-entity id="model" class="clickable" gltf-model="#avatarModel" rotation="90 0 0" position="0 0 0.1"
+        scale=".5 .5 .5"></a-entity>
     </a-entity>
     <a-entity id="music" position="0 0 0" sound="src: #musicEl"></a-entity>
 
   </a-scene>
 
-  <script  type="module" src="index.js"></script>
+  <script type="module" src="index.js"></script>
 
 
 </body>
