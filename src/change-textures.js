@@ -1,9 +1,17 @@
 const changeTextures = {
     init() {
         const model = document.getElementById('model');
+        const music = document.getElementById('music');
         model.addEventListener('model-loaded', () => {
             const btns = document.querySelectorAll('.btns-wrapper__item');
             const mesh = model.getObject3D('mesh');
+            model.addEventListener('click', () => {
+                music.components.sound.playSound()
+                model.setAttribute('animation-mixer', {
+                    'clip': 'mixamo.com',
+                    'loop': 'once',
+                })
+            })
             if (mesh) {
                 mesh.traverse((node) => {
                     if (node.isMesh) {
