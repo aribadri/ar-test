@@ -1,1 +1,1 @@
-# ar-test
+npm i <br> npm run dev
