@@ -1,4 +1,29 @@
-.mindar-ui-scanning {
+.btns-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5%;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+.btns-wrapper__item {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 100%;
+}
+.btn-red {
+  background-color: red;
+}
+.btn-green {
+  background-color: green;
+}
+.btn-blue {
+  background-color: blue;
 }
 
 #loader {
