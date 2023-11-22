@@ -1,3 +1,20 @@
+#target-image {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 50%;
+  height: 30%;
+  display: flex;
+  background-image: url('targets/santa-target.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+  opacity: .5;
+}
 .btns-wrapper {
   position: absolute;
   left: 50%;

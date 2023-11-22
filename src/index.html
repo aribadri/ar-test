@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <div id="target-image"></div>
   <div class="btns-wrapper hidden">
     <div class="btns-wrapper__item btn-red"></div>
     <div class="btns-wrapper__item btn-green"></div>
@@ -45,8 +46,9 @@
  
 
   <a-scene
+  raycaster="objects: .clickable"
   change-textures
-   mindar-image="imageTargetSrc: targets/targets-2.mind; uiLoading:#loader; uiScanning:" color-space="sRGB"
+   mindar-image="imageTargetSrc: targets/targets-2.mind; uiLoading:#loader; uiScanning: #target-image" color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: true">
     <a-assets>
@@ -63,7 +65,7 @@
     </a-camera>
     <a-entity id="target" mindar-image-target="targetIndex: 0">
       <!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
-      <a-gltf-model  id="model" rotation="90 0 0" position="0 0 0.1" scale=".5 .5 .5" src="#avatarModel">
+      <a-gltf-model class="clickable"  id="model" rotation="90 0 0" position="0 0 0.1" scale=".5 .5 .5" src="#avatarModel">
     </a-entity>
     <a-entity id="music" position="0 0 0" sound="src: #musicEl"></a-entity>
 
