@@ -3,6 +3,7 @@ import { changeTextures } from './change-textures'
 
 document.addEventListener("DOMContentLoaded", function () {
     AFRAME.registerComponent('change-textures', changeTextures)
+    
     const btns = document.querySelector('.btns-wrapper')
 
     let isPlaying = false
