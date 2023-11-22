@@ -2,29 +2,65 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Test</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Test</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image.prod.js"></script>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+  <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
 
 </head>
 
 <body>
-    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-        <a-assets>
-          <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/card.png" crossorigin="anonymous" />
-          <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
-        </a-assets>
-  
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-        <a-entity mindar-image-target="targetIndex: 0">
-          <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-          <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
-        </a-entity>
-      </a-scene>
-    <script type="module" src="./index.js"></script>
+  <div id="loader">
+    <div class="window">
+      <div class="santa">
+        <div class="head">
+          <div class="face">
+            <div class="redhat">
+              <div class="redpart"></div>
+              <div class="hatball"></div>
+            </div>
+            <div class="eyes"></div>
+            <div class="beard">
+              <div class="nouse"></div>
+              <div class="mouth"></div>
+            </div>
+          </div>
+          <div class="ears"></div>
+        </div>
+        <div class="body"></div>
+      </div>
+    </div>
+  </div>
+
+  <a-scene renderer="colorManagement: true;" info-message="htmlSrc: #messageText"
+    model-viewer="gltfModel: #triceratops; title: Triceratops"
+    mindar-image="imageTargetSrc: targets/targets.mind; uiLoading:#loader; uiScanning:" color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true">
+    <a-assets>
+      <img id="card"
+        src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/card.png"
+        crossorigin="anonymous" />
+      <a-asset-item id="avatarModel" src="models/santa.glb"></a-asset-item>
+      <audio id="musicEl" src="maska.mp3" preload="auto"></audio>
+
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false">
+
+    </a-camera>
+    <a-entity id="target" mindar-image-target="targetIndex: 0">
+      <!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
+      <a-gltf-model id="model" rotation="90 0 0" position="0 0 0.1" scale="1 1 1" src="#avatarModel">
+    </a-entity>
+    <a-entity id="music" position="0 0 0" sound="src: #musicEl"></a-entity>
+
+  </a-scene>
+  <script type="module" src="./index.js"></script>
 
 </body>
 
